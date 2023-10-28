@@ -15,16 +15,18 @@
 class Number:
 
     def __init__(self, value):
-        ...
+        self.value = value
 
-    def ...(self):
-        ...
+    def get(self):
+        return self.value
 
-    def ...:
-        ...
+    def add(self, var_add):
+        self.value += var_add
+        return self.value
 
-    def ...:
-        ...
+    def substract(self, var_sub):
+        self.value -= var_sub
+        return self.value
 
 
 n = Number(7)
