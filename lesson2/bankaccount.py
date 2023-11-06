@@ -12,7 +12,41 @@
 
 
 class BankAccount:
-    pass
+    def __init__(self, balance):
+        """
+        Конструктор, принимающий начальный баланс счета.
+        balance: свойство, которое возвращает текущий баланс счета.
+        """
+        self.__balance = balance
+
+    @property
+    def balance(self):
+        return self.__balance
+
+    @balance.setter
+    def balance(self, new_balance):
+        self.__balance = new_balance
+
+    def deposit(self, amount):
+        """
+        Метод, который позволяет внести деньги на счет.
+        """
+        self.balance += amount
+
+    def withdraw(self, amount):
+        """
+        Метод, который позволяет снять деньги со счета.
+        """
+        self.balance -= amount
+
+    def close(self):
+        """
+        Метод, который закрывает счет и возвращает оставшиеся на нем деньги
+        :return:
+        """
+        out_data = self.balance
+        self.balance = 0
+        return out_data
 
 
 account = BankAccount(1000)

@@ -9,7 +9,24 @@
 
 
 class MyList2:
-    pass
+    def __init__(self, data, start=0, step=1):
+        self.data = data
+        self.__start = start
+        self.__step = step
+
+    def __iter__(self):
+        self.__current_value = self.__start - self.__step
+        return self
+
+    def __next__(self):
+        if self.__current_value + self.__step < len(self.data):
+            self.__current_value += self.__step
+            return self.data[self.__current_value]
+        else:
+            raise StopIteration
+
+    def __getitem__(self, index):
+        return self.data[index]
 
 
 my_list = MyList2([1, 2, 3])
